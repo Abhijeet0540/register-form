@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .edit-page {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(270deg, #45abff, #42A5F5, #1E88E5, #1865b3);
+            background-size: 800% 800%;
+            animation: gradientFlow 15s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="edit-page min-h-screen flex items-center justify-center text-white">
+    <section class="glass rounded-2xl p-10 w-full max-w-md shadow-xl animate-fade-in">
+        <div class="mb-4">
+            <a href="/read"
+                class="inline-block bg-white text-blue-600 font-semibold px-4 py-2 rounded hover:bg-blue-100 transition">
+                <i class="fas fa-users"></i> Show All Users
+            </a>
+        </div>
+        <h1 class="text-4xl font-bold text-center mb-6 text-white animate-slide-in">
+            <i class="fas fa-user-edit text-[#82B1FF]"></i> Edit User
+        </h1>
+
+        <form action="/update/<%= user._id %>" method="POST" class="flex flex-col gap-4 animate-slide-up">
+            <div class="relative">
+                <i class="fas fa-user absolute left-3 top-3 text-blue-200"></i>
+                <input type="text" name="name" placeholder="Enter your name" value="<%= user.name %>"
+                    class="pl-10 py-2 w-full rounded-lg bg-white bg-opacity-10 text-white border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+            </div>
+
+            <div class="relative">
+                <i class="fas fa-envelope absolute left-3 top-3 text-blue-200"></i>
+                <input type="email" name="email" placeholder="Enter your email" value="<%= user.email %>"
+                    class="pl-10 py-2 w-full rounded-lg bg-white bg-opacity-10 text-white border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+            </div>
+
+            <div class="relative">
+                <i class="fas fa-image absolute left-3 top-3 text-blue-200"></i>
+                <input type="text" name="imageurl" placeholder="Image URL" value="<%= user.imageurl %>"
+                    class="pl-10 py-2 w-full rounded-lg bg-white bg-opacity-10 text-white border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+            </div>
+
+            <button type="submit"
+                class="mt-4 py-2 bg-[#448AFF] hover:bg-[#2979FF] transition rounded-lg font-semibold text-white flex items-center justify-center gap-2">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </form>
+    </section>
+
+    <script>
+        document.querySelector('section').classList.add('animate-fade-in');
+    </script>
+</body>
+
+</html>
