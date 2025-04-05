@@ -1,8 +1,28 @@
 {
+  "name": "user-registration-ssr",
+  "version": "1.0.0",
+  "description": "User registration system with server-side rendering",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "init": "^0.1.2",
     "mongoose": "^8.12.1"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "ejs",
+    "server-side-rendering",
+    "user-management"
+  ],
+  "author": "",
+  "license": "MIT"
 }
